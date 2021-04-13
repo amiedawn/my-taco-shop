@@ -1,0 +1,33 @@
+{
+  "name": "taco-shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/server.js",
+  "dependencies": {
+    "if-env": "^1.0.4",
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {
+    "concurrently": "^6.0.0"
+  },
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "cd server && npm start",
+    "start:dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "postinstall": "npx concurrently \"npm:install:client\" \"npm:install:server\"",
+    "install:client": "cd client && npm i",
+    "install:server": "cd server && npm i",
+    "seed": "cd server && npm run seed",
+    "heroku-postbuild": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amiedawn/taco-shop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amiedawn/taco-shop/issues"
+  },
+  "homepage": "https://github.com/amiedawn/taco-shop#readme"
+}
