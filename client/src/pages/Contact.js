@@ -69,7 +69,14 @@ function Contact() {
           </div>
           {errorMessage && (
             <div>
-              <p className="error-text">{errorMessage}</p>
+              <p 
+                className="error-text"
+                style={{ 
+                  textTransform: "capitalize",
+                }}
+              >
+              {errorMessage}
+              </p>
             </div>
           )}
           {response && (
